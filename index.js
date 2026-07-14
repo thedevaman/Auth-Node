@@ -4,6 +4,8 @@ import express from 'express'
 const app = express()
 
 app.listen(8080,()=>console.log("Server Running"))
+app.use(express.json())
+app.use(express.urlencoded({extended:false}))
 
 mongoose.connect("mongodb://localhost:27017/coading_ott")
 .then(()=>console.log("DB Connected"))
@@ -13,6 +15,6 @@ app.post("/login",(req,res)=>{
     res.json({message:'login success'})
 })
 
-app.post("/signup",(res,req)=>{
+app.post("/signup",(req,res)=>{
     res.json({message:'signup success'})
 })
