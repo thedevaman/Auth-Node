@@ -11,6 +11,8 @@
   "license": "ISC",
   "type": "module",
   "dependencies": {
+    "bcrypt": "^6.0.0",
+    "email-validator": "^2.0.4",
     "express": "^5.2.1",
     "mongoose": "^9.7.4"
   }

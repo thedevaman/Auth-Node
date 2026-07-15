@@ -1,5 +1,7 @@
 import mongoose from "mongoose";
 import express from 'express'
+import { userSchema } from "./schema/user.js";
+
 
 const app = express()
 
@@ -15,6 +17,15 @@ app.post("/login",(req,res)=>{
     res.json({message:'login success'})
 })
 
-app.post("/signup",(req,res)=>{
-    res.json({message:'signup success'})
+app.post("/signup",async (req,res)=>{
+    try{
+        const payload = req.body
+        await userSchema.create(payload)
+        res.status(200).json({message:'Signup Success'})
+
+    }catch(err)
+    {
+      res.status(500).json({message: err.message})
+    }
+
 })
