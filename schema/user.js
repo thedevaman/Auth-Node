@@ -2,6 +2,7 @@ import { Schema, model } from "mongoose";
 import bcrypt from 'bcrypt'
 import emailValidator from 'email-validator'
 
+
 const schema = new Schema({
     fullname:{
         type: String,
