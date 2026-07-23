@@ -3,12 +3,14 @@ import express from 'express'
 import { userSchema } from "./schema/user.js";
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
+import cors from 'cors'
 const secret = 'fcf904ba15d0cfffa4555196bd951449'
 
 
 const app = express()
 
 app.listen(8080,()=>console.log("Server Running"))
+app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({extended:false}))
 
