@@ -26,6 +26,7 @@ app.post("/login",async (req,res)=>{
     if(user)
     {
     const tokenPayLoad = {
+        id:user.id,
         fullname:user.fullname,
         email:user.email
     }
@@ -34,6 +35,7 @@ app.post("/login",async (req,res)=>{
     {
     const token = jwt.sign(tokenPayLoad, secret, {expiresIn:'7d'})
      res.json({message:'Login Success',
+        user:tokenPayLoad,
         token: token
      })
     }else{
